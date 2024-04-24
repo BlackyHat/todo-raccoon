@@ -1,10 +1,13 @@
 import React from 'react'
-import { Layout } from '@/components'
+import { Toaster } from 'react-hot-toast'
+
+import { Router } from '@/routesConfig'
 
 export const App: React.FC = () => {
   return (
-    <Layout>
-      <h1>TODO APP</h1>
-    </Layout>
+    <>
+      <Router />
+      <Toaster />
+    </>
   )
 }
