@@ -1,0 +1,33 @@
+{
+  "name": "ToDo RacCoon – organize effectively your tasks",
+  "short_name": "ToDo RacCoon",
+  "title": "ToDo RacCoon – organize effectively your tasks",
+  "description": "This is a web application that allows users to plan and organize their own current tasks.",
+  "start_url": "/",
+  "locale": "en",
+  "keywords": "todo, task organize, planning, event planning, todo, task list, todo list",
+  "icons": [
+    {
+      "src": "/meta/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/meta/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "images": [
+    {
+      "url": "/meta/og-image.jpg",
+      "width": 1200,
+      "height": 630,
+      "alt": "ToDo RacCoon – organize effectively your tasks"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
