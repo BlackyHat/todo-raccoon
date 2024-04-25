@@ -1,6 +1,6 @@
 export type TUserTask = {
-  id: number
-  title: string
+  id: Date
+  name: string
   description: string
   completed: boolean
   deleted: boolean

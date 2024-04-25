@@ -2,12 +2,13 @@ import { useState, useEffect, MouseEvent, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 
 import { ModalProps } from './types'
+
 import scss from './Modal.module.scss'
+
+import CloseIcon from '@assets/icons/icon-close.svg?react'
 
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   const [isVisible, setIsVisible] = useState(false)
-
-  /**ADD delay before show modal or hide to animate process */
 
   const closeModal = useCallback(() => {
     setIsVisible(false)
@@ -16,15 +17,11 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     }, 300)
   }, [onClose])
 
-  /** set up visible modal window by change status*/
-
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true)
     }
   }, [isOpen])
-
-  /** handle keydown by user press keyboard on ESC and also filter if window already visible not to add extra one listener*/
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent): void => {
@@ -42,16 +39,12 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     }
   }, [isVisible, closeModal])
 
-  /** add scroll block to body and remove that  */
-
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
-
-  /** handle click on backdrop to close modal */
 
   const handleClickBackdrop = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -71,6 +64,16 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       <div
         className={`${scss.modal} ${isVisible ? scss.visible : scss.invisible}`}
       >
+        <div className={scss.modalTitle}>
+          <p>Add new goal</p>
+          <button
+            className={scss.closeButton}
+            onClick={closeModal}
+            aria-label="close window"
+          >
+            <CloseIcon />
+          </button>
+        </div>
         {children}
       </div>
     </div>,

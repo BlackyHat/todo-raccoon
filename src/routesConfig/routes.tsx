@@ -3,7 +3,8 @@ import { Navigate } from 'react-router-dom'
 
 import Layout from '@/components'
 
-const ActiveTasks = lazy(() => import('@/pages/ActiveTasks'))
+const Home = lazy(() => import('@/pages/Home'))
+const TaskList = lazy(() => import('@/pages/TaskList'))
 const ErrorPage = lazy(() => import('@/pages/Error'))
 const NotFoundPage = lazy(() => import('@/pages/NotFound'))
 
@@ -13,17 +14,12 @@ export const routes = [
     children: [
       {
         path: '/tasks',
-        element: <ActiveTasks title="ALL" />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: '/tasks/new-task',
-        element: <ActiveTasks title="Add New Task" />,
+        element: <Home />,
         errorElement: <ErrorPage />,
       },
       {
         path: '/tasks/:taskStatus',
-        element: <ActiveTasks title="active" />,
+        element: <TaskList />,
         errorElement: <ErrorPage />,
       },
       {

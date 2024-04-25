@@ -1,20 +1,16 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Header } from '../Header'
+import { Header } from '@/components'
 
-const Layout: React.FC = () => {
-  return (
-    <div>
-      <Header />
-      <h1>TODO APP 2024</h1>
-      <main>
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
-      </main>
-    </div>
-  )
-}
+const Layout: React.FC = () => (
+  <main>
+    <Header />
+
+    <Suspense fallback={null}>
+      <Outlet />
+    </Suspense>
+  </main>
+)
 
 export default Layout

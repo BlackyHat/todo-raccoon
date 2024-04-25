@@ -1,0 +1,36 @@
+.submitButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  margin: auto;
+  padding: 8px 24px;
+
+  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--primary-white-color);
+  background-color: var(--primary-color);
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+  text-wrap: nowrap;
+
+  &:invalid {
+    pointer-events: none;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  & > svg {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+  }
+}

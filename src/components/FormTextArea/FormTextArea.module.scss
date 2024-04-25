@@ -1,0 +1,60 @@
+.label {
+  position: relative;
+  margin-bottom: 0.5rem; // Adjust if needed for your design
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem; // Text size for small screen sizes
+  color: #6b7280; // Text color for slate-500
+
+  // Media query for medium screen sizes
+  @media (min-width: 768px) {
+    font-size: 1rem; // Text size for base size on medium screens
+  }
+
+  & > span {
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    letter-spacing: 0.025em;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+.textarea {
+  position: relative;
+  font-family: inherit;
+  margin-bottom: 1.5rem; // "mb-5" (1.25rem corresponds to 20px)
+  height: 10rem; // "h-40" (10rem corresponds to 160px)
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid rgb(149, 149, 149); // "border-greyBorder" (adjust the hex value of the color to match your greyBorder)
+  background-color: lightgrey;
+
+  padding: 1rem; // "p-4" (1rem corresponds to 16px)
+  text-align: left; // "text-left"
+  font-size: 18px; // "text-sm" (0.875rem corresponds to 14px)
+  font-weight: 300; // "font-light" (300 corresponds to light weight)
+  transition: all 0.3s ease-in-out; // "transition"
+
+  &:focus {
+    outline: none; // "focus:outline-none"
+    &-visible {
+      border-color: #3182ce; // "focus-visible:border-primary" (adjust the hex value of the color to match your primary)
+    }
+  }
+
+  &.error {
+    border-color: #ef4444; // "border-red-500" (adjust the hex value to match red-500)
+  }
+}
+
+.alert {
+  position: absolute;
+  bottom: 0;
+  right: 1rem; // "right-4" (1rem corresponds to 16px)
+  //   height: 1rem; // "h-4" (1rem corresponds to 16px)
+  text-align: right;
+  color: #ef4444; // "text-red-500" (adjust the hex value if necessary)
+}

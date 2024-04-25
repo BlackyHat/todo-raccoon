@@ -1,52 +1,51 @@
-import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-
-import { Modal } from '@/components'
 
 import { TaskStatus } from '@/types'
 
 import scss from './Header.module.scss'
 
-export const Header: React.FC = () => {
-  const [open, setOpen] = useState(false)
+import HomeIcon from '@assets/icons/icon-home.svg?react'
+import ActiveIcon from '@assets/icons/icon-active.svg?react'
+import CompletedIcon from '@assets/icons/icon-completed.svg?react'
+import DeletedIcon from '@assets/icons/icon-deleted.svg?react'
 
-  const onClose = () => setOpen(false)
-  const onOpen = () => setOpen(true)
+export const Header: React.FC = () => {
+  const icons = [ActiveIcon, CompletedIcon, DeletedIcon]
 
   return (
     <header className={scss.header}>
-      <div className={scss.container}>
-        <p>Organize your time</p>
-        <button onClick={onOpen}>MODAL</button>
-        {open && (
-          <Modal isOpen={open} onClose={onClose}>
-            <h2>MODAL OPEN</h2>
-          </Modal>
-        )}
+      <div className={`container ${scss.container}`}>
+        <NavLink
+          className={scss.homeLink}
+          to={`tasks/`}
+          title="Home page"
+          aria-label="Home page"
+        >
+          <HomeIcon />
+          <span>Home Page</span>
+        </NavLink>
+
         <nav>
           <ul className={scss.navList}>
-            <li key="new-task">
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? scss.activeLink : scss.link
-                }
-                to="tasks/new-task"
-              >
-                New task
-              </NavLink>
-            </li>
-            {Object.values(TaskStatus).map(page => (
-              <li key={page}>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? scss.activeLink : scss.link
-                  }
-                  to={`tasks/${page.toLowerCase()}`}
-                >
-                  {page.toLowerCase()}
-                </NavLink>
-              </li>
-            ))}
+            {Object.values(TaskStatus).map((page, idx) => {
+              const Icon = icons[idx]
+              const path = page.toLowerCase()
+              return (
+                <li key={path}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? scss.activeLink : scss.link
+                    }
+                    title={`${path} tasks`}
+                    aria-label={`${path} tasks`}
+                    to={`tasks/${path}`}
+                  >
+                    <Icon />
+                    <span>{path}</span>
+                  </NavLink>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </div>

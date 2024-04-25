@@ -7,6 +7,7 @@
   justify-content: center;
   backdrop-filter: blur(8px);
   transition: all 0.3s ease-in-out;
+  padding: 12px;
 
   &.visible {
     background-color: rgba(0, 0, 0, 0.25);
@@ -20,6 +21,17 @@
 
 .modal {
   transition: all 0.3s ease-in-out;
+  position: relative;
+  max-width: 360px;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  top: 0;
+  padding: 24px 12px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 36px 24px;
+  }
 
   &.visible {
     transform: scale(1);
@@ -29,5 +41,39 @@
   &.invisible {
     transform: scale(1.25);
     opacity: 0;
+  }
+}
+
+.modalTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  & > p {
+    font-size: 18px;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    color: var(--primary-text-color);
+  }
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  background: white;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+    color: var(--primary-text-color);
   }
 }

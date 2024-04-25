@@ -1,27 +1,23 @@
 .container {
-  max-width: 480px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  max-width: 768px;
+  padding: 12px;
   margin: 0 auto;
-  padding: 8px;
-
   @media screen and (min-width: 768px) {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 768px;
-    padding: 12px;
+    max-width: 960px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 1440px;
-    padding: 16px 24px;
+    max-width: 1280px;
   }
 }
 
 .header {
   background-color: darkseagreen;
-  position: fixed;
-  top: 0;
   width: 100%;
+  padding: 16px 0;
 
   & .navList {
     max-width: 1280px;
@@ -44,16 +40,53 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   color: inherit;
+  opacity: 0.8;
   text-decoration: inherit;
   text-transform: capitalize;
-  // font-weight: 500;
-  // letter-spacing: 0.025em;
-  font-size: 16px;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.025em;
   text-wrap: nowrap;
+
+  transition: color ease-in-out 250ms, opacity ease-in-out 250ms;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-text-color);
+    opacity: 1;
+  }
+  @media screen and (min-width: 480px) {
+    gap: 12px;
+
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+  }
 }
 
 .activeLink {
   @extend .link;
-  color: red;
+  color: var(--primary-text-color);
+  opacity: 0.8;
+  &:hover,
+  &:focus {
+    color: var(--primary-text-color);
+    opacity: 1;
+  }
+}
+
+.homeLink {
+  @extend .link;
+  & > span {
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+  }
 }
