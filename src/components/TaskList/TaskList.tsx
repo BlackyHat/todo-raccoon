@@ -3,6 +3,7 @@ import { TaskActions } from '@/components'
 import { getFormattedDate } from '@/utils'
 
 import { TaskListProps } from './types'
+
 import scss from './TaskList.module.scss'
 
 export const TaskList: React.FC<TaskListProps> = ({ tasks }) =>

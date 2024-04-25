@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Modal, TodoForm } from '@/components'
+import { Modal, TaskForm } from '@/components'
 
 import scss from './TaskModal.module.scss'
 
@@ -19,7 +19,7 @@ export const TaskModal: React.FC = () => {
 
       {open && (
         <Modal isOpen={open} onClose={onClose}>
-          <TodoForm onClose={onClose} />
+          <TaskForm onClose={onClose} />
         </Modal>
       )}
     </>

@@ -4,6 +4,7 @@ import { useAppDispatch } from '@/hooks'
 import { deleteTask, removeToDeleted, toggleCompleted } from '@/redux'
 
 import { TaskActionsProps } from './types'
+
 import scss from './TaskActions.module.scss'
 
 import CheckIcon from '@assets/icons/icon-check.svg?react'
@@ -36,7 +37,7 @@ export const TaskActions: React.FC<TaskActionsProps> = ({
       <li>
         <button
           type="button"
-          aria-label="change task's status"
+          aria-label="change the task's status"
           title="change task's status"
           onClick={handleTaskStatus}
           className={`${scss.completedButton} 

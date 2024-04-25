@@ -66,6 +66,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       >
         <div className={scss.modalTitle}>
           <p>Add new goal</p>
+
           <button
             className={scss.closeButton}
             onClick={closeModal}
@@ -74,6 +75,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             <CloseIcon />
           </button>
         </div>
+        
         {children}
       </div>
     </div>,

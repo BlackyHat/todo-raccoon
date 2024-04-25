@@ -7,12 +7,13 @@ import { FormTextArea, FormField } from '@/components'
 import { useAppDispatch } from '@/hooks'
 import { addTask } from '@/redux'
 
-import scss from './TodoForm.module.scss'
-import { TodoFormProps } from './types'
+import { TaskFormProps } from './types'
+
+import scss from './TaskForm.module.scss'
 
 import PlusIcon from '@assets/icons/icon-add.svg?react'
 
-export const TodoForm: React.FC<TodoFormProps> = ({ onClose }) => {
+export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
   const dispatch = useAppDispatch()
 
   const {

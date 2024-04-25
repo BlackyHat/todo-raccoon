@@ -3,6 +3,6 @@ export type TFormData = {
   description: string
 }
 
-export type TodoFormProps = {
+export type TaskFormProps = {
   onClose: () => void
 }

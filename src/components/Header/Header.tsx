@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
 
+import { useAppSelector } from '@/hooks'
+import { selectTasksCounts } from '@/redux'
 import { TaskStatus } from '@/types'
 
 import scss from './Header.module.scss'
@@ -8,8 +10,6 @@ import HomeIcon from '@assets/icons/icon-home.svg?react'
 import ActiveIcon from '@assets/icons/icon-active.svg?react'
 import CompletedIcon from '@assets/icons/icon-completed.svg?react'
 import DeletedIcon from '@assets/icons/icon-deleted.svg?react'
-import { useAppSelector } from '@/hooks'
-import { selectTasksCounts } from '@/redux'
 
 export const Header: React.FC = () => {
   const icons = [ActiveIcon, CompletedIcon, DeletedIcon]
@@ -45,8 +45,10 @@ export const Header: React.FC = () => {
                     to={`tasks/${path}`}
                   >
                     <Icon />
+
                     <span>{path}</span>
                   </NavLink>
+
                   {count !== undefined && (
                     <span className={scss.badge}>{count}</span>
                   )}

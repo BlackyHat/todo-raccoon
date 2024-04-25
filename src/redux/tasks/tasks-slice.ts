@@ -23,7 +23,7 @@ const tasksSlice = createSlice({
 
     deleteTask: (state, action) => {
       const index = state.tasks.findIndex(todo => todo.id === action.payload)
-      state.tasks.splice(index, 1, action.payload)
+      state.tasks.splice(index, 1)
     },
 
     removeToDeleted: (state, action) => {

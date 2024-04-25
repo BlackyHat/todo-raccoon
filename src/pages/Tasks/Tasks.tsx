@@ -20,6 +20,7 @@ const Tasks: React.FC = () => {
         <h1 className={scss.title}>
           The list of <span>{taskStatus}</span> tasks 🐎🤠🏇
         </h1>
+        
         <TaskList tasks={tasksByStatus} />
       </div>
     </section>
