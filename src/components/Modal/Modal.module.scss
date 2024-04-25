@@ -1,0 +1,33 @@
+.backdrop {
+  z-index: 80;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease-in-out;
+
+  &.visible {
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 1;
+  }
+
+  &.invisible {
+    opacity: 0;
+  }
+}
+
+.modal {
+  transition: all 0.3s ease-in-out;
+
+  &.visible {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &.invisible {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
