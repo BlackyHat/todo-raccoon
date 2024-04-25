@@ -3,8 +3,8 @@ import { Navigate } from 'react-router-dom'
 
 import Layout from '@/components'
 
-const Home = lazy(() => import('@/pages/Home'))
-const TaskList = lazy(() => import('@/pages/TaskList'))
+const Home = lazy(() => import('@/pages/Home/Home'))
+const Tasks = lazy(() => import('@/pages/Tasks'))
 const ErrorPage = lazy(() => import('@/pages/Error'))
 const NotFoundPage = lazy(() => import('@/pages/NotFound'))
 
@@ -19,7 +19,7 @@ export const routes = [
       },
       {
         path: '/tasks/:taskStatus',
-        element: <TaskList />,
+        element: <Tasks />,
         errorElement: <ErrorPage />,
       },
       {

@@ -70,10 +70,18 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  transition: transform ease-in-out 300ms;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.5);
+  }
 
   & svg {
     width: 100%;
     height: 100%;
+    transform: rotate(45deg);
     color: var(--primary-text-color);
+    transition: transform ease-in-out 300ms;
   }
 }

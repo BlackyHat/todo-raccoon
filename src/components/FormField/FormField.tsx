@@ -11,25 +11,23 @@ export const FormField: React.FC<FormFieldProps> = ({
   name,
   register,
   errors,
-}) => {
-  return (
-    <label htmlFor={name} className={scss.label}>
-      <span>{label}</span>
+}) => (
+  <label htmlFor={name} className={scss.label}>
+    <span>{label}</span>
 
-      <input
-        id={name}
-        type={type}
-        {...register('title', { required: true, maxLength: 20 })}
-        aria-invalid={errors.title ? 'true' : 'false'}
-        placeholder={placeholder}
-        className={`${scss.input} ${errors.title ? scss.error : ''}`}
-      />
+    <input
+      id={name}
+      type={type}
+      {...register(name, { required: true, maxLength: 20 })}
+      aria-invalid={errors.title ? 'true' : 'false'}
+      placeholder={placeholder}
+      className={`${scss.input} ${errors.title ? scss.error : ''}`}
+    />
 
-      {errors.title && (
-        <p role="alert" className={scss.alert}>
-          Max length 20 symbols
-        </p>
-      )}
-    </label>
-  )
-}
+    {errors[name] && (
+      <p role="alert" className={scss.alert}>
+        Max length 20 symbols
+      </p>
+    )}
+  </label>
+)

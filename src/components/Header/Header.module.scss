@@ -15,38 +15,47 @@
 }
 
 .header {
-  background-color: darkseagreen;
+  background-color: var(--secondary-color);
   width: 100%;
   padding: 16px 0;
+  box-shadow: 0px 10px 8px 0px rgb(13, 13, 13);
 
   & .navList {
     max-width: 1280px;
     padding: 12px;
     display: flex;
-    gap: 16px;
     gap: 8px;
     list-style: none;
+
+    @media screen and (min-width: 768px) {
+      gap: 28px;
+    }
+
+    & > li {
+      position: relative;
+    }
   }
 
   & p {
     display: none;
-
     @media screen and (min-width: 768px) {
       display: block;
       font-size: 20px;
       line-height: 1.5;
     }
+    @media screen and (min-width: 1280px) {
+      font-size: 24px;
+    }
   }
 }
 
 .link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   color: inherit;
-  opacity: 0.8;
   text-decoration: inherit;
   text-transform: capitalize;
 
@@ -57,36 +66,71 @@
 
   transition: color ease-in-out 250ms, opacity ease-in-out 250ms;
 
+  & > svg {
+    transition: transform ease-in-out 250ms;
+    transform: rotate(0deg);
+  }
+
   &:hover,
   &:focus {
     color: var(--primary-text-color);
-    opacity: 1;
+
+    & > svg {
+      transform: rotate(360deg);
+    }
   }
   @media screen and (min-width: 480px) {
     gap: 12px;
-
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 0.025em;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
   }
 }
 
 .activeLink {
   @extend .link;
   color: var(--primary-text-color);
-  opacity: 0.8;
   &:hover,
   &:focus {
     color: var(--primary-text-color);
-    opacity: 1;
   }
 }
 
 .homeLink {
   @extend .link;
-  & > span {
+  & .homeLabel {
     @media screen and (max-width: 480px) {
       display: none;
     }
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: -16px;
+
+  background: var(--primary-white-color);
+  color: var(--primary-text-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+
+  @media screen and (max-width: 480px) {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
   }
 }

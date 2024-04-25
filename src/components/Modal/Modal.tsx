@@ -5,7 +5,7 @@ import { ModalProps } from './types'
 
 import scss from './Modal.module.scss'
 
-import CloseIcon from '@assets/icons/icon-close.svg?react'
+import CloseIcon from '@assets/icons/icon-plus.svg?react'
 
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   const [isVisible, setIsVisible] = useState(false)

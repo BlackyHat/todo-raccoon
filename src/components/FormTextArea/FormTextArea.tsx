@@ -10,24 +10,22 @@ export const FormTextArea: React.FC<FormTextAreaProps> = ({
   name,
   register,
   errors,
-}) => {
-  return (
-    <label htmlFor={name} className={scss.label}>
-      <span>{label}</span>
+}) => (
+  <label htmlFor={name} className={scss.label}>
+    <span>{label}</span>
 
-      <textarea
-        id={name}
-        {...register('description', { required: true, maxLength: 200 })}
-        aria-invalid={errors.description ? 'true' : 'false'}
-        placeholder={placeholder}
-        className={`${scss.textarea} ${errors.title ? scss.error : ''}`}
-      />
+    <textarea
+      id={name}
+      {...register(name, { required: true, maxLength: 200 })}
+      aria-invalid={errors.description ? 'true' : 'false'}
+      placeholder={placeholder}
+      className={`${scss.textarea} ${errors.title ? scss.error : ''}`}
+    />
 
-      {errors.description && (
-        <p role="alert" className={scss.alert}>
-          Max length 200 symbols
-        </p>
-      )}
-    </label>
-  )
-}
+    {errors[name] && (
+      <p role="alert" className={scss.alert}>
+        Max length 200 symbols
+      </p>
+    )}
+  </label>
+)

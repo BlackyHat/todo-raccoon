@@ -40,6 +40,7 @@ const tasksSlice = createSlice({
   },
 })
 
-export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions
+export const { addTask, deleteTask, toggleCompleted, removeToDeleted } =
+  tasksSlice.actions
 
 export const tasksReducer = tasksSlice.reducer

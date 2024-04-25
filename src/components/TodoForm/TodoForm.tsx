@@ -10,7 +10,7 @@ import { addTask } from '@/redux'
 import scss from './TodoForm.module.scss'
 import { TodoFormProps } from './types'
 
-import PlusIcon from '@assets/icons/icon-plus.svg?react'
+import PlusIcon from '@assets/icons/icon-add.svg?react'
 
 export const TodoForm: React.FC<TodoFormProps> = ({ onClose }) => {
   const dispatch = useAppDispatch()
@@ -19,7 +19,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onClose }) => {
     register,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FieldValues>({ mode: 'onChange' })
 
   const onSubmit: SubmitHandler<FieldValues> = data => {
@@ -35,7 +35,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onClose }) => {
         name="name"
         register={register}
         label="Name:"
-        placeholder="Work on task A"
+        placeholder="Order an awesome pizza"
         errors={errors}
       />
 
@@ -47,7 +47,7 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onClose }) => {
         errors={errors}
       />
 
-      <button type="submit" className={scss.submitButton}>
+      <button type="submit" className={scss.submitButton} disabled={!isValid}>
         Save
         <PlusIcon />
       </button>

@@ -8,9 +8,12 @@ import HomeIcon from '@assets/icons/icon-home.svg?react'
 import ActiveIcon from '@assets/icons/icon-active.svg?react'
 import CompletedIcon from '@assets/icons/icon-completed.svg?react'
 import DeletedIcon from '@assets/icons/icon-deleted.svg?react'
+import { useAppSelector } from '@/hooks'
+import { selectTasksCounts } from '@/redux'
 
 export const Header: React.FC = () => {
   const icons = [ActiveIcon, CompletedIcon, DeletedIcon]
+  const counts = useAppSelector(selectTasksCounts)
 
   return (
     <header className={scss.header}>
@@ -22,7 +25,7 @@ export const Header: React.FC = () => {
           aria-label="Home page"
         >
           <HomeIcon />
-          <span>Home Page</span>
+          <span className={scss.homeLabel}>Home Page</span>
         </NavLink>
 
         <nav>
@@ -30,6 +33,7 @@ export const Header: React.FC = () => {
             {Object.values(TaskStatus).map((page, idx) => {
               const Icon = icons[idx]
               const path = page.toLowerCase()
+              const count = counts[path as keyof typeof counts]
               return (
                 <li key={path}>
                   <NavLink
@@ -43,6 +47,9 @@ export const Header: React.FC = () => {
                     <Icon />
                     <span>{path}</span>
                   </NavLink>
+                  {count !== undefined && (
+                    <span className={scss.badge}>{count}</span>
+                  )}
                 </li>
               )
             })}

@@ -1,0 +1,58 @@
+.taskList {
+  display: grid;
+  gap: 8px;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+.heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  overflow: hidden;
+}
+.listItem {
+  position: relative;
+  padding: 6px 24px 10px;
+  border-radius: 32px;
+  background-color: var(--primary-white-color);
+  color: var(--primary-text-color);
+  overflow: hidden;
+  transition: opacity ease-in-out 300ms;
+
+  &.completed {
+    text-decoration: line-through;
+    opacity: 0.8;
+  }
+}
+.listTitle {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.date {
+  opacity: 0.7;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+
+  margin-bottom: 12px;
+}
+.desc {
+  font-size: 16px;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+.label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+}
